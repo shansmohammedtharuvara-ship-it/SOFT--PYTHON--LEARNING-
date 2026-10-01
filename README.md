@@ -1,8 +1,8 @@
 # SOFT--PYTHON--LEARNING-
 30 DAYS OF PYTHON - SOFT,JAIN UNIVERSITY | STAFF : SATHISH KUMAR M 
 # SOFT Python Learning
-**Student:** Your Name
-**Register No:** XXXXX
+**Student:** shans mohammed 
+**Register No:** jsoft26032
 **Staff:** Sathish Kumar M
 **Department:** School of Future Technology, Jain University
 ## Progress
