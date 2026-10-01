@@ -1,0 +1,70 @@
+# Exercises: Level 2
+
+# 1. Unpack siblings and parents from family_members
+
+siblings = family_members[:-2]
+parents = family_members[-2:]
+
+print('Siblings:', siblings)
+print('Parents:', parents)
+
+
+# 2. Create fruits, vegetables and animal products tuples
+
+fruits = ('apple', 'banana', 'orange', 'mango')
+vegetables = ('carrot', 'potato', 'tomato', 'onion')
+animal_products = ('milk', 'cheese', 'butter', 'egg')
+
+# Join all three tuples
+food_stuff_tp = fruits + vegetables + animal_products
+
+print('Food stuff:', food_stuff_tp)
+
+
+# 3. Change food_stuff_tp tuple to a list
+
+food_stuff_lt = list(food_stuff_tp)
+
+print('Food stuff list:', food_stuff_lt)
+
+
+# 4. Slice out the middle item or items
+
+middle = len(food_stuff_lt) // 2
+
+if len(food_stuff_lt) % 2 == 0:
+    middle_items = food_stuff_lt[middle - 1:middle + 1]
+else:
+    middle_items = food_stuff_lt[middle:middle + 1]
+
+print('Middle item(s):', middle_items)
+
+
+# 5. Slice out the first three and last three items
+
+first_three = food_stuff_lt[:3]
+last_three = food_stuff_lt[-3:]
+
+print('First three:', first_three)
+print('Last three:', last_three)
+
+
+# 6. Delete the food_stuff_tp tuple completely
+
+del food_stuff_tp
+
+# food_stuff_tp no longer exists
+
+
+# 7. Check if an item exists in tuple
+
+nordic_countries = (
+    'Denmark',
+    'Finland',
+    'Iceland',
+    'Norway',
+    'Sweden'
+)
+
+print('Estonia' in nordic_countries)
+print('Iceland' in nordic_countries)
