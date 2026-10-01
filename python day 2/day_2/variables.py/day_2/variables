@@ -1,0 +1,147 @@
+```python
+# Day 2: 30 Days of python programming
+
+
+# =========================
+# Exercises: Level 1
+# =========================
+
+# 3. First name
+first_name = "Shans"
+
+# 4. Last name
+last_name = "Mohammed"
+
+# 5. Full name
+full_name = "Shans Mohammed"
+
+# 6. Country
+country = "India"
+
+# 7. City
+city = "Malappuram"
+
+# 8. Age
+age = 18
+
+# 9. Year
+year = 2026
+
+# 10. Is married
+is_married = False
+
+# 11. Is true
+is_true = True
+
+# 12. Is light on
+is_light_on = True
+
+# 13. Multiple variables on one line
+x, y, z = 10, 20, 30
+
+
+# =========================
+# Exercises: Level 2
+# =========================
+
+# 1. Check the data type of all variables
+print(type(first_name))
+print(type(last_name))
+print(type(full_name))
+print(type(country))
+print(type(city))
+print(type(age))
+print(type(year))
+print(type(is_married))
+print(type(is_true))
+print(type(is_light_on))
+print(type(x))
+print(type(y))
+print(type(z))
+
+
+# 2. Find the length of first name
+first_name_length = len(first_name)
+print("Length of first name:", first_name_length)
+
+
+# 3. Compare the length of first name and last name
+print("Is first name longer than last name?", len(first_name) > len(last_name))
+print("Is first name shorter than last name?", len(first_name) < len(last_name))
+print("Are they the same length?", len(first_name) == len(last_name))
+
+
+# 4. Declare num_one and num_two
+num_one = 5
+num_two = 4
+
+
+# 5. Add num_one and num_two
+total = num_one + num_two
+print("Total:", total)
+
+
+# 6. Subtract num_two from num_one
+diff = num_one - num_two
+print("Difference:", diff)
+
+
+# 7. Multiply num_two and num_one
+product = num_two * num_one
+print("Product:", product)
+
+
+# 8. Divide num_one by num_two
+division = num_one / num_two
+print("Division:", division)
+
+
+# 9. Modulus division
+remainder = num_two % num_one
+print("Remainder:", remainder)
+
+
+# 10. num_one to the power of num_two
+exp = num_one ** num_two
+print("Exponent:", exp)
+
+
+# 11. Floor division
+floor_division = num_one // num_two
+print("Floor division:", floor_division)
+
+
+# 12. Circle calculations
+radius = 30
+
+# 12.1 Calculate area of circle
+area_of_circle = 3.14 * radius ** 2
+print("Area of circle:", area_of_circle)
+
+# 12.2 Calculate circumference of circle
+circum_of_circle = 2 * 3.14 * radius
+print("Circumference of circle:", circum_of_circle)
+
+# 12.3 Take radius as user input and calculate area
+user_radius = float(input("Enter radius of the circle: "))
+
+user_area = 3.14 * user_radius ** 2
+
+print("Area of your circle:", user_area)
+
+
+# 13. Get user information using input()
+first_name = input("Enter your first name: ")
+last_name = input("Enter your last name: ")
+country = input("Enter your country: ")
+age = int(input("Enter your age: "))
+
+print("First name:", first_name)
+print("Last name:", last_name)
+print("Country:", country)
+print("Age:", age)
+
+
+# 14. Check Python reserved keywords
+help("keywords")
+```
