@@ -1,0 +1,103 @@
+# Python Tuples
+# Exercises: Level 1
+
+# 1. Create an empty tuple
+empty_tuple = ()
+print('Empty tuple:', empty_tuple)
+
+
+# 2. Create tuples containing names of sisters and brothers
+brothers = ('Arun', 'Vishnu', 'Rahul')
+sisters = ('Anu', 'Meera', 'Diya')
+
+print('Brothers:', brothers)
+print('Sisters:', sisters)
+
+
+# 3. Join brothers and sisters
+siblings = brothers + sisters
+print('Siblings:', siblings)
+
+
+# 4. How many siblings do you have?
+number_of_siblings = len(siblings)
+print('Number of siblings:', number_of_siblings)
+
+
+# 5. Add father and mother to siblings
+parents = ('Ramesh', 'Sunitha')
+
+family_members = siblings + parents
+print('Family members:', family_members)
+
+
+# --------------------------------------------------
+# Exercises: Level 2
+# --------------------------------------------------
+
+# 1. Unpack siblings and parents from family_members
+brother1, brother2, brother3, sister1, sister2, sister3, father, mother = family_members
+
+print('Brother 1:', brother1)
+print('Brother 2:', brother2)
+print('Brother 3:', brother3)
+print('Sister 1:', sister1)
+print('Sister 2:', sister2)
+print('Sister 3:', sister3)
+print('Father:', father)
+print('Mother:', mother)
+
+
+# 2. Create fruits, vegetables and animal products tuples
+fruits = ('Apple', 'Banana', 'Mango')
+vegetables = ('Carrot', 'Potato', 'Tomato')
+animal_products = ('Milk', 'Egg', 'Cheese')
+
+food_stuff_tp = fruits + vegetables + animal_products
+
+print('Food stuff tuple:', food_stuff_tp)
+
+
+# 3. Change food_stuff_tp tuple to a list
+food_stuff_lt = list(food_stuff_tp)
+
+print('Food stuff list:', food_stuff_lt)
+
+
+# 4. Slice out the middle item or items
+middle_index = len(food_stuff_lt) // 2
+
+if len(food_stuff_lt) % 2 == 0:
+    middle_items = food_stuff_lt[middle_index - 1:middle_index + 1]
+else:
+    middle_items = food_stuff_lt[middle_index]
+
+print('Middle item(s):', middle_items)
+
+
+# 5. Slice out the first three and last three items
+first_three = food_stuff_lt[:3]
+last_three = food_stuff_lt[-3:]
+
+print('First three items:', first_three)
+print('Last three items:', last_three)
+
+
+# 6. Delete the food_stuff_tp tuple completely
+del food_stuff_tp
+
+print('food_stuff_tp tuple has been deleted.')
+
+
+# 7. Check if an item exists in the tuple
+nordic_countries = ('Denmark', 'Finland', 'Iceland', 'Norway', 'Sweden')
+
+if 'Estonia' in nordic_countries:
+    print('Estonia is a Nordic country.')
+else:
+    print('Estonia is not in the Nordic countries tuple.')
+
+if 'Iceland' in nordic_countries:
+    print('Iceland is a Nordic country.')
+else:
+    print('Iceland is not in the Nordic countries tuple.')

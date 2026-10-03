@@ -1,0 +1,184 @@
+# Arithmetic Operations in Python
+
+# Integers
+
+print('Addition:', 10 + 5)
+print('Subtraction:', 10 - 5)
+print('Multiplication:', 10 * 5)
+
+# Division gives a floating point number
+print('Division:', 10 / 2)
+print('Division:', 15 / 3)
+print('Division:', 17 / 4)
+
+# Division without the remainder
+print('Division without remainder:', 17 // 4)
+
+# Modulus gives the remainder
+print('Modulus:', 17 % 4)
+
+print('Division without remainder:', 20 // 3)
+
+# Exponential
+print('Exponential:', 4 ** 2)
+
+
+# Floating point numbers
+
+print('Floating number:', 3.14)
+print('Gravity:', 9.81)
+
+
+# Complex numbers
+
+print('Complex number:', 2 + 3j)
+print('Multiplying complex numbers:', (2 + 3j) * (2 - 3j))
+
+
+# Declaring variables
+
+a = 10
+b = 5
+
+
+# Arithmetic operations
+
+total = a + b
+difference = a - b
+product = a * b
+division = a / b
+remainder = a % b
+floor_division = a // b
+exponential = a ** b
+
+
+# Printing the results
+
+print('a + b =', total)
+print('a - b =', difference)
+print('a * b =', product)
+print('a / b =', division)
+print('a % b =', remainder)
+print('a // b =', floor_division)
+print('a ** b =', exponential)
+
+
+# Declaring values
+
+num_one = 8
+num_two = 4
+
+
+# Arithmetic operations
+
+total = num_one + num_two
+difference = num_two - num_one
+product = num_one * num_two
+division = num_one / num_two
+remainder = num_one % num_two
+
+
+# Printing values
+
+print('Total:', total)
+print('Difference:', difference)
+print('Product:', product)
+print('Division:', division)
+print('Remainder:', remainder)
+
+
+# Calculating area of a circle
+
+radius = 7
+area_of_circle = 3.14 * radius ** 2
+
+print('Area of circle:', area_of_circle)
+
+
+# Calculating area of a rectangle
+
+length = 15
+width = 10
+
+area_of_rectangle = length * width
+
+print('Area of rectangle:', area_of_rectangle)
+
+
+# Calculating weight of an object
+
+mass = 60
+gravity = 9.81
+
+weight = mass * gravity
+
+print('Weight:', weight, 'N')
+
+
+# Comparison operators
+
+print(10 > 5)
+print(10 >= 5)
+print(5 < 10)
+print(5 <= 10)
+print(10 == 5)
+print(10 != 5)
+
+
+# Comparing string lengths
+
+print(len('Python') == len('Java'))
+print(len('Python') != len('Java'))
+print(len('Python') > len('Java'))
+print(len('BCA') < len('Computer'))
+print(len('HTML') == len('Java'))
+print(len('Python') > len('Coding'))
+
+
+# Boolean comparison
+
+print('True == True:', True == True)
+print('True == False:', True == False)
+print('False == False:', False == False)
+
+print('True and True:', True and True)
+print('True and False:', True and False)
+
+print('True or False:', True or False)
+print('False or False:', False or False)
+
+
+# Identity operators
+
+print('10 is 10:', 10 is 10)
+print('10 is not 20:', 10 is not 20)
+
+
+# Membership operators
+
+print('P in Python:', 'P' in 'Python')
+print('Z in Python:', 'Z' in 'Python')
+
+print('Python in Python programming:', 'Python' in 'Python programming')
+
+print('a in apple:', 'a' in 'apple')
+
+print('x in apple:', 'x' in 'apple')
+
+
+# Logical operators
+
+print(10 > 5 and 8 > 3)
+print(10 > 5 and 8 < 3)
+print(5 > 10 and 8 < 3)
+
+print(10 > 5 or 8 > 3)
+print(10 > 5 or 8 < 3)
+print(5 > 10 or 8 < 3)
+
+print(not 10 > 5)
+print(not True)
+print(not False)
+
+print(not not True)
+print(not not False)

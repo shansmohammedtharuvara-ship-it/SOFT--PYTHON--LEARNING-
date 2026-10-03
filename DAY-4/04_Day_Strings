@@ -1,0 +1,360 @@
+# Strings in Python
+
+# Single line string
+
+letter = 'S'
+print(letter)
+print(len(letter))
+
+greeting = 'Hello, Python!'
+print(greeting)
+print(len(greeting))
+
+sentence = 'I am learning Python as part of my BCA course.'
+print(sentence)
+
+
+# Multiline String
+
+multiline_string = '''Python is a simple programming language.
+It is easy to learn and useful for many applications.
+I am practicing Python programming every day.'''
+
+print(multiline_string)
+
+
+# Another way to create a multiline string
+
+multiline_string = """Python is a simple programming language.
+It is easy to learn and useful for many applications.
+I am practicing Python programming every day."""
+
+print(multiline_string)
+
+
+# String Concatenation
+
+first_name = 'Shans'
+last_name = 'Mohammed'
+space = ' '
+
+full_name = first_name + space + last_name
+
+print(full_name)
+
+# Checking the length of strings
+
+print(len(first_name))
+print(len(last_name))
+print(len(first_name) > len(last_name))
+print(len(full_name))
+
+
+# Unpacking characters
+
+language = 'Python'
+
+a, b, c, d, e, f = language
+
+print(a)
+print(b)
+print(c)
+print(d)
+print(e)
+print(f)
+
+
+# Accessing characters using index
+
+language = 'Python'
+
+first_letter = language[0]
+print(first_letter)
+
+second_letter = language[1]
+print(second_letter)
+
+last_index = len(language) - 1
+last_letter = language[last_index]
+
+print(last_letter)
+
+
+# Negative indexing
+
+language = 'Python'
+
+last_letter = language[-1]
+print(last_letter)
+
+second_last = language[-2]
+print(second_last)
+
+
+# Slicing strings
+
+language = 'Python'
+
+first_three = language[0:3]
+print(first_three)
+
+last_three = language[3:6]
+print(last_three)
+
+# Another way
+
+last_three = language[-3:]
+print(last_three)
+
+last_three = language[3:]
+print(last_three)
+
+
+# Skipping characters
+
+language = 'Python'
+
+pto = language[0:6:2]
+
+print(pto)
+
+
+# Escape sequences
+
+print('I am learning Python.\nIt is interesting to learn programming.')
+
+print('Name\tAge\tCourse')
+print('Shans\t18\tBCA')
+print('Arun\t19\tBCA')
+print('Rahul\t20\tBCA')
+
+print('This is a backslash symbol (\\)')
+
+print('Python programming starts with "Hello, World!"')
+
+
+# String Methods
+
+# capitalize()
+
+course = 'bachelor of computer applications'
+
+print(course.capitalize())
+
+
+# count()
+
+course = 'python programming'
+
+print(course.count('p'))
+print(course.count('p', 1, 10))
+print(course.count('gram'))
+
+
+# endswith()
+
+course = 'python programming'
+
+print(course.endswith('ing'))
+print(course.endswith('python'))
+
+
+# expandtabs()
+
+course = 'Python\tProgramming\tLanguage'
+
+print(course.expandtabs())
+print(course.expandtabs(4))
+
+
+# find()
+
+course = 'python programming'
+
+print(course.find('p'))
+print(course.find('program'))
+
+
+# format()
+
+first_name = 'Shans'
+last_name = 'Mohammed'
+course_name = 'BCA'
+country = 'India'
+
+sentence = 'My name is {} {}. I am studying {}. I live in {}.'.format(
+    first_name, last_name, course_name, country
+)
+
+print(sentence)
+
+
+# Calculating area using format()
+
+radius = 7
+pi = 3.14
+
+area = pi * radius ** 2
+
+result = 'The area of the circle with radius {} is {}'.format(radius, area)
+
+print(result)
+
+
+# index()
+
+course = 'python programming'
+
+print(course.index('p'))
+print(course.index('program'))
+
+
+# isalnum()
+
+text = 'PythonProgramming'
+
+print(text.isalnum())
+
+text = 'Python123'
+
+print(text.isalnum())
+
+text = 'Python Programming'
+
+print(text.isalnum())
+
+
+# isalpha()
+
+text = 'Python'
+
+print(text.isalpha())
+
+number = '12345'
+
+print(number.isalpha())
+
+
+# isdecimal()
+
+number = '12345'
+
+print(number.isdecimal())
+
+number = '12.5'
+
+print(number.isdecimal())
+
+
+# isdigit()
+
+number = '12345'
+
+print(number.isdigit())
+
+text = 'Python'
+
+print(text.isdigit())
+
+
+# isidentifier()
+
+variable_name = 'student_name'
+
+print(variable_name.isidentifier())
+
+variable_name = '123student'
+
+print(variable_name.isidentifier())
+
+
+# islower()
+
+text = 'python programming'
+
+print(text.islower())
+
+text = 'Python Programming'
+
+print(text.islower())
+
+
+# isupper()
+
+text = 'python programming'
+
+print(text.isupper())
+
+text = 'PYTHON PROGRAMMING'
+
+print(text.isupper())
+
+
+# isnumeric()
+
+number = '12345'
+
+print(number.isnumeric())
+
+text = 'python'
+
+print(text.isnumeric())
+
+
+# join()
+
+languages = ['Python', 'Java', 'C++', 'JavaScript']
+
+result = ', '.join(languages)
+
+print(result)
+
+
+# strip()
+
+text = '   Python programming   '
+
+print(text.strip())
+
+
+# replace()
+
+text = 'I am learning Python'
+
+print(text.replace('Python', 'Java'))
+
+
+# split()
+
+text = 'Python is easy to learn'
+
+print(text.split())
+
+
+# title()
+
+text = 'python programming language'
+
+print(text.title())
+
+
+# swapcase()
+
+text = 'python programming'
+
+print(text.swapcase())
+
+text = 'Python Programming'
+
+print(text.swapcase())
+
+
+# startswith()
+
+text = 'Python programming'
+
+print(text.startswith('Python'))
+
+text = 'Java programming'
+
+print(text.startswith('Python'))

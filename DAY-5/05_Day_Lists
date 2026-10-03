@@ -1,0 +1,323 @@
+# Python Lists
+
+# Creating an empty list
+
+empty_list = []
+print('Empty list:', empty_list)
+print('Length of empty list:', len(empty_list))
+
+
+# Creating different lists
+
+cars = ['BMW', 'Toyota', 'Honda', 'Ford']
+
+bikes = ['Yamaha', 'Honda', 'Suzuki', 'KTM', 'Ducati']
+
+mobile_brands = ['Apple', 'Samsung', 'OnePlus', 'Google']
+
+programming_languages = [
+    'Python',
+    'Java',
+    'C++',
+    'JavaScript',
+    'PHP'
+]
+
+countries = ['India', 'Japan', 'Germany', 'Canada', 'Australia']
+
+
+# Printing the lists and their length
+
+print('Cars:', cars)
+print('Number of cars:', len(cars))
+
+print('Bikes:', bikes)
+print('Number of bikes:', len(bikes))
+
+print('Mobile brands:', mobile_brands)
+print('Number of mobile brands:', len(mobile_brands))
+
+print('Programming languages:', programming_languages)
+print('Number of programming languages:', len(programming_languages))
+
+print('Number of countries:', len(countries))
+
+
+# Accessing list items
+
+cars = ['BMW', 'Toyota', 'Honda', 'Ford']
+
+first_car = cars[0]
+print('First car:', first_car)
+
+second_car = cars[1]
+print('Second car:', second_car)
+
+last_car = cars[3]
+print('Last car:', last_car)
+
+
+# Finding the last item using length
+
+last_index = len(cars) - 1
+last_car = cars[last_index]
+
+print('Last car:', last_car)
+
+
+# Accessing items using negative index
+
+cars = ['BMW', 'Toyota', 'Honda', 'Ford']
+
+last_car = cars[-1]
+second_last_car = cars[-2]
+
+print('Last car:', last_car)
+print('Second last car:', second_last_car)
+
+
+# Slicing items
+
+cars = ['BMW', 'Toyota', 'Honda', 'Ford']
+
+all_cars = cars[0:4]
+print('All cars:', all_cars)
+
+all_cars = cars[0:]
+print('All cars:', all_cars)
+
+toyota_honda = cars[1:3]
+print('Toyota and Honda:', toyota_honda)
+
+toyota_honda_ford = cars[1:]
+print('Toyota, Honda and Ford:', toyota_honda_ford)
+
+
+# Negative slicing
+
+cars = ['BMW', 'Toyota', 'Honda', 'Ford']
+
+all_cars = cars[-4:]
+print('All cars:', all_cars)
+
+toyota_honda = cars[-3:-1]
+print('Toyota and Honda:', toyota_honda)
+
+toyota_honda_ford = cars[-3:]
+print('Toyota, Honda and Ford:', toyota_honda_ford)
+
+
+# Changing list items
+
+cars = ['BMW', 'Toyota', 'Honda', 'Ford']
+
+cars[0] = 'Audi'
+print(cars)
+
+cars[1] = 'Mercedes'
+print(cars)
+
+cars[-1] = 'Tesla'
+print(cars)
+
+
+# Checking if an item exists
+
+cars = ['BMW', 'Toyota', 'Honda', 'Ford']
+
+does_exist = 'BMW' in cars
+print('Is BMW available?', does_exist)
+
+does_exist = 'Tesla' in cars
+print('Is Tesla available?', does_exist)
+
+
+# Append
+
+cars = ['BMW', 'Toyota', 'Honda', 'Ford']
+
+cars.append('Audi')
+print('After adding Audi:', cars)
+
+cars.append('Tesla')
+print('After adding Tesla:', cars)
+
+
+# Insert
+
+cars = ['BMW', 'Toyota', 'Honda', 'Ford']
+
+cars.insert(2, 'Audi')
+print('After inserting Audi:', cars)
+
+cars.insert(3, 'Tesla')
+print('After inserting Tesla:', cars)
+
+
+# Remove
+
+cars = ['BMW', 'Toyota', 'Honda', 'Ford']
+
+cars.remove('BMW')
+print('After removing BMW:', cars)
+
+cars.remove('Ford')
+print('After removing Ford:', cars)
+
+
+# Pop
+
+cars = ['BMW', 'Toyota', 'Honda', 'Ford']
+
+cars.pop()
+print('After removing last item:', cars)
+
+cars.pop(0)
+print('After removing first item:', cars)
+
+
+# Del
+
+cars = ['BMW', 'Toyota', 'Honda', 'Ford']
+
+del cars[0]
+print('After deleting first item:', cars)
+
+del cars[1]
+print('After deleting second item:', cars)
+
+# Delete the complete list
+del cars
+
+# We cannot print cars here because the variable has been deleted.
+
+
+# Clear
+
+cars = ['BMW', 'Toyota', 'Honda', 'Ford']
+
+cars.clear()
+
+print('After clearing the list:', cars)
+
+
+# Copying a list
+
+cars = ['BMW', 'Toyota', 'Honda', 'Ford']
+
+cars_copy = cars.copy()
+
+print('Original list:', cars)
+print('Copied list:', cars_copy)
+
+
+# Joining lists using +
+
+numbers1 = [1, 2, 3, 4, 5]
+numbers2 = [6, 7, 8, 9, 10]
+
+numbers = numbers1 + numbers2
+
+print('Numbers:', numbers)
+
+
+cars = ['BMW', 'Toyota', 'Honda']
+bikes = ['Yamaha', 'Suzuki', 'KTM']
+
+vehicles = cars + bikes
+
+print('Cars and bikes:', vehicles)
+
+
+# Joining lists using extend()
+
+num1 = [1, 2, 3]
+num2 = [4, 5, 6]
+
+num1.extend(num2)
+
+print('Numbers:', num1)
+
+
+# Combining negative and positive numbers
+
+negative_numbers = [-5, -4, -3, -2, -1]
+zero = [0]
+positive_numbers = [1, 2, 3, 4, 5]
+
+negative_numbers.extend(zero)
+negative_numbers.extend(positive_numbers)
+
+print('Integers:', negative_numbers)
+
+
+# Extending cars with bikes
+
+cars = ['BMW', 'Toyota', 'Honda']
+bikes = ['Yamaha', 'Suzuki', 'KTM']
+
+cars.extend(bikes)
+
+print('Cars and bikes:', cars)
+
+
+# Count
+
+cars = ['BMW', 'Toyota', 'Honda', 'BMW']
+
+print('BMW count:', cars.count('BMW'))
+
+marks = [70, 80, 75, 90, 80, 85, 80]
+
+print('80 count:', marks.count(80))
+
+
+# Index
+
+cars = ['BMW', 'Toyota', 'Honda', 'Ford']
+
+print('Index of Toyota:', cars.index('Toyota'))
+
+marks = [70, 80, 75, 90, 80, 85, 80]
+
+print('Index of 80:', marks.index(80))
+
+
+# Reverse
+
+cars = ['BMW', 'Toyota', 'Honda', 'Ford']
+
+cars.reverse()
+
+print('Reversed cars:', cars)
+
+
+marks = [70, 80, 75, 90, 80, 85, 80]
+
+marks.reverse()
+
+print('Reversed marks:', marks)
+
+
+# Sort
+
+cars = ['BMW', 'Toyota', 'Honda', 'Ford']
+
+cars.sort()
+
+print('Cars in ascending order:', cars)
+
+cars.sort(reverse=True)
+
+print('Cars in descending order:', cars)
+
+
+marks = [70, 80, 75, 90, 80, 85, 80]
+
+marks.sort()
+
+print('Marks in ascending order:', marks)
+
+marks.sort(reverse=True)
+
+print('Marks in descending order:', marks)
