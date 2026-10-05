@@ -1,0 +1,355 @@
+# Using for loop
+print("Using for loop:")
+
+for i in range(11):
+    print(i)
+
+
+# Using while loop
+print("Using while loop:")
+
+i = 0
+
+while i <= 10:
+    print(i)
+    i += 1
+    
+    # Using for loop
+print("Using for loop:")
+
+for i in range(10, -1, -1):
+    print(i)
+
+
+# Using while loop
+print("Using while loop:")
+
+i = 10
+
+while i >= 0:
+    print(i)
+    i -= 1
+    
+    for i in range(1, 8):
+    print("#" * i)
+    
+    for row in range(8):
+    for column in range(8):
+        print("#", end=" ")
+    print()
+    
+    for number in range(11):
+    result = number * number
+    print(f"{number} x {number} = {result}")
+    
+    
+    languages = ["Python", "Numpy", "Pandas", "Django", "Flask"]
+
+for language in languages:
+    print(language)
+    
+    
+    for number in range(101):
+    if number % 2 == 0:
+        print(number)
+        
+        for number in range(101):
+    if number % 2 != 0:
+        print(number)
+        
+        
+        total = 0
+
+for number in range(101):
+    total += number
+
+print("The sum of all numbers is", total)
+
+
+
+even_sum = 0
+odd_sum = 0
+
+for number in range(101):
+    if number % 2 == 0:
+        even_sum += number
+    else:
+        odd_sum += number
+
+print("The sum of all evens is", even_sum)
+print("The sum of all odds is", odd_sum)
+
+
+from countries import countries
+
+land_countries = []
+
+for country in countries:
+    if "land" in country:
+        land_countries.append(country)
+
+print("Countries containing 'land':")
+print(land_countries)
+
+
+fruits = ["banana", "orange", "mango", "lemon"]
+
+reversed_fruits = []
+
+for fruit in fruits:
+    reversed_fruits.insert(0, fruit)
+
+print("Original list:", fruits)
+print("Reversed list:", reversed_fruits)
+
+
+from countries_data import countries_data
+
+all_languages = []
+
+for country in countries_data:
+    for language in country["languages"]:
+        if language not in all_languages:
+            all_languages.append(language)
+
+print("Total number of languages:", len(all_languages))
+
+
+from countries_data import countries_data
+
+language_count = {}
+
+for country in countries_data:
+    for language in country["languages"]:
+        if language in language_count:
+            language_count[language] += 1
+        else:
+            language_count[language] = 1
+
+language_list = []
+
+for language, count in language_count.items():
+    language_list.append((count, language))
+
+language_list.sort(reverse=True)
+
+print("The 10 most spoken languages are:")
+
+for count, language in language_list[:10]:
+    print(language, "-", count, "countries")
+    
+    
+    from countries_data import countries_data
+
+population_list = []
+
+for country in countries_data:
+    name = country["name"]
+    population = country["population"]
+
+    population_list.append((population, name))
+
+population_list.sort(reverse=True)
+
+print("The 10 most populated countries are:")
+
+for population, country in population_list[:10]:
+    print(country, "-", population)
+    
+    
+    # =========================
+# DAY 10 - LOOPS
+# =========================
+
+# LEVEL 1
+
+# 1. 0 to 10 using for loop
+print("Numbers from 0 to 10:")
+
+for i in range(11):
+    print(i)
+
+
+# 0 to 10 using while loop
+i = 0
+
+while i <= 10:
+    print(i)
+    i += 1
+
+
+# 2. 10 to 0 using for loop
+print("Numbers from 10 to 0:")
+
+for i in range(10, -1, -1):
+    print(i)
+
+
+# 10 to 0 using while loop
+i = 10
+
+while i >= 0:
+    print(i)
+    i -= 1
+
+
+# 3. Triangle
+print("Triangle:")
+
+for i in range(1, 8):
+    print("#" * i)
+
+
+# 4. 8 x 8 pattern
+print("8 x 8 pattern:")
+
+for row in range(8):
+    for column in range(8):
+        print("#", end=" ")
+    print()
+
+
+# 5. Square numbers
+print("Square numbers:")
+
+for number in range(11):
+    print(f"{number} x {number} = {number * number}")
+
+
+# 6. List of programming languages
+languages = ["Python", "Numpy", "Pandas", "Django", "Flask"]
+
+for language in languages:
+    print(language)
+
+
+# 7. Even numbers
+print("Even numbers:")
+
+for number in range(101):
+    if number % 2 == 0:
+        print(number)
+
+
+# 8. Odd numbers
+print("Odd numbers:")
+
+for number in range(101):
+    if number % 2 != 0:
+        print(number)
+
+
+# =========================
+# LEVEL 2
+# =========================
+
+# 1. Sum from 0 to 100
+
+total = 0
+
+for number in range(101):
+    total += number
+
+print("The sum of all numbers is", total)
+
+
+# 2. Sum of evens and odds
+
+even_sum = 0
+odd_sum = 0
+
+for number in range(101):
+    if number % 2 == 0:
+        even_sum += number
+    else:
+        odd_sum += number
+
+print("The sum of all evens is", even_sum)
+print("The sum of all odds is", odd_sum)
+
+
+# =========================
+# LEVEL 3
+# =========================
+
+# 1. Countries containing "land"
+
+from countries import countries
+
+land_countries = []
+
+for country in countries:
+    if "land" in country:
+        land_countries.append(country)
+
+print("Countries containing land:")
+print(land_countries)
+
+
+# 2. Reverse fruit list
+
+fruits = ["banana", "orange", "mango", "lemon"]
+
+reversed_fruits = []
+
+for fruit in fruits:
+    reversed_fruits.insert(0, fruit)
+
+print("Reversed fruits:", reversed_fruits)
+
+
+# 3. Countries data
+
+from countries_data import countries_data
+
+# Total number of languages
+
+all_languages = []
+
+for country in countries_data:
+    for language in country["languages"]:
+        if language not in all_languages:
+            all_languages.append(language)
+
+print("Total number of languages:", len(all_languages))
+
+
+# 10 most spoken languages
+
+language_count = {}
+
+for country in countries_data:
+    for language in country["languages"]:
+        if language in language_count:
+            language_count[language] += 1
+        else:
+            language_count[language] = 1
+
+language_list = []
+
+for language, count in language_count.items():
+    language_list.append((count, language))
+
+language_list.sort(reverse=True)
+
+print("Top 10 most spoken languages:")
+
+for count, language in language_list[:10]:
+    print(language, "-", count)
+
+
+# 10 most populated countries
+
+population_list = []
+
+for country in countries_data:
+    population_list.append(
+        (country["population"], country["name"])
+    )
+
+population_list.sort(reverse=True)
+
+print("Top 10 most populated countries:")
+
+for population, country in population_list[:10]:
+    print(country, "-", population)
