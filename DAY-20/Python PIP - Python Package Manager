@@ -1,0 +1,250 @@
+# DAY 20 EXERCISES
+# PYTHON WEB APIs
+
+import requests
+import re
+import statistics
+from collections import Counter
+from bs4 import BeautifulSoup
+
+
+# =========================
+# QUESTION 1
+# =========================
+
+# Find 10 most frequent words in Romeo and Juliet
+
+url = 'https://www.gutenberg.org/files/1112/1112.txt'
+
+response = requests.get(url)
+
+if response.status_code == 200:
+
+    text = response.text.lower()
+
+    words = re.findall(r'\b[a-z]+\b', text)
+
+    word_count = {}
+
+    for word in words:
+
+        if word in word_count:
+            word_count[word] += 1
+        else:
+            word_count[word] = 1
+
+    result = []
+
+    for word, count in word_count.items():
+        result.append((count, word))
+
+    result.sort(reverse=True)
+
+    print("10 most frequent words:")
+
+    print(result[:10])
+
+else:
+    print("Could not get Romeo and Juliet text")
+
+
+# =========================
+# QUESTION 2
+# =========================
+
+# Read cats API
+
+cats_api = 'https://api.thecatapi.com/v1/breeds'
+
+response = requests.get(cats_api)
+
+cats = response.json()
+
+
+# QUESTION 2A
+# Find weight statistics
+
+weights = []
+
+for cat in cats:
+
+    weight = cat['weight']['metric']
+
+    parts = weight.split(' - ')
+
+    if len(parts) == 2:
+
+        minimum = float(parts[0])
+        maximum = float(parts[1])
+
+        average = (minimum + maximum) / 2
+
+        weights.append(average)
+
+
+print("CAT WEIGHT STATISTICS")
+
+print("Minimum:", min(weights))
+print("Maximum:", max(weights))
+print("Mean:", statistics.mean(weights))
+print("Median:", statistics.median(weights))
+print("Standard deviation:", statistics.stdev(weights))
+
+
+# QUESTION 2B
+# Find lifespan statistics
+
+lifespans = []
+
+for cat in cats:
+
+    life = cat['life_span']
+
+    parts = life.split(' - ')
+
+    if len(parts) == 2:
+
+        minimum = float(parts[0])
+        maximum = float(parts[1])
+
+        average = (minimum + maximum) / 2
+
+        lifespans.append(average)
+
+
+print("CAT LIFESPAN STATISTICS")
+
+print("Minimum:", min(lifespans))
+print("Maximum:", max(lifespans))
+print("Mean:", statistics.mean(lifespans))
+print("Median:", statistics.median(lifespans))
+print("Standard deviation:", statistics.stdev(lifespans))
+
+
+# QUESTION 2C
+# Frequency table of countries and cat breeds
+
+country_count = {}
+
+for cat in cats:
+
+    country = cat['origin']
+
+    if country in country_count:
+        country_count[country] += 1
+    else:
+        country_count[country] = 1
+
+
+print("CAT BREEDS BY COUNTRY")
+
+for country, count in country_count.items():
+    print(country, ":", count)
+
+
+# =========================
+# QUESTION 3
+# =========================
+
+# Read countries API
+
+countries_api = 'https://restcountries.com/v3.1/all?fields=name,area,languages'
+
+response = requests.get(countries_api)
+
+countries = response.json()
+
+
+# QUESTION 3A
+# Find 10 largest countries
+
+def get_area(country):
+    return country['area']
+
+
+largest_countries = sorted(
+    countries,
+    key=get_area,
+    reverse=True
+)
+
+
+print("10 LARGEST COUNTRIES")
+
+for country in largest_countries[:10]:
+
+    print(
+        country['name']['common'],
+        country['area']
+    )
+
+
+# QUESTION 3B
+# Find 10 most spoken languages
+
+language_count = {}
+
+for country in countries:
+
+    if 'languages' in country:
+
+        for language in country['languages'].values():
+
+            if language in language_count:
+                language_count[language] += 1
+            else:
+                language_count[language] = 1
+
+
+def get_count(item):
+    return item[1]
+
+
+sorted_languages = sorted(
+    language_count.items(),
+    key=get_count,
+    reverse=True
+)
+
+
+print("10 MOST SPOKEN LANGUAGES")
+
+for language in sorted_languages[:10]:
+    print(language)
+
+
+# QUESTION 3C
+# Find total number of languages
+
+total_languages = len(language_count)
+
+print("Total number of languages:", total_languages)
+
+
+# =========================
+# QUESTION 4
+# =========================
+
+# Read UCI Machine Learning website
+
+uci_url = 'https://archive.ics.uci.edu/datasets'
+
+response = requests.get(uci_url)
+
+if response.status_code == 200:
+
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    print("UCI WEBSITE TITLE:")
+
+    print(soup.title.text)
+
+    print("UCI WEBSITE HEADINGS:")
+
+    headings = soup.find_all(['h1', 'h2', 'h3'])
+
+    for heading in headings:
+        print(heading.get_text(strip=True))
+
+else:
+    print("Could not access UCI website")

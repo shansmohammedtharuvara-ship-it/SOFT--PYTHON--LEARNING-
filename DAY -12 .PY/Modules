@@ -1,0 +1,121 @@
+import random
+import string
+
+# LEVEL 1
+
+# Question 1
+def random_user_id():
+    characters = string.ascii_letters + string.digits
+    user_id = ""
+
+    for i in range(6):
+        user_id += random.choice(characters)
+
+    return user_id
+
+print(random_user_id())
+
+
+# Question 2
+def user_id_gen_by_user():
+    characters = string.ascii_letters + string.digits
+
+    length = int(input("Enter number of characters: "))
+    number = int(input("Enter number of IDs: "))
+
+    for i in range(number):
+        user_id = ""
+
+        for j in range(length):
+            user_id += random.choice(characters)
+
+        print(user_id)
+
+user_id_gen_by_user()
+
+
+# Question 3
+def rgb_color_gen():
+    red = random.randint(0, 255)
+    green = random.randint(0, 255)
+    blue = random.randint(0, 255)
+
+    return "rgb(" + str(red) + "," + str(green) + "," + str(blue) + ")"
+
+print(rgb_color_gen())
+
+
+# LEVEL 2
+
+# Question 1
+def list_of_hexa_colors(number):
+    colors = []
+    characters = "0123456789abcdef"
+
+    for i in range(number):
+        color = "#"
+
+        for j in range(6):
+            color += random.choice(characters)
+
+        colors.append(color)
+
+    return colors
+
+print(list_of_hexa_colors(3))
+
+
+# Question 2
+def list_of_rgb_colors(number):
+    colors = []
+
+    for i in range(number):
+        red = random.randint(0, 255)
+        green = random.randint(0, 255)
+        blue = random.randint(0, 255)
+
+        color = "rgb(" + str(red) + "," + str(green) + "," + str(blue) + ")"
+
+        colors.append(color)
+
+    return colors
+
+print(list_of_rgb_colors(3))
+
+
+# Question 3
+def generate_colors(color_type, number):
+
+    if color_type == "hexa":
+        return list_of_hexa_colors(number)
+
+    elif color_type == "rgb":
+        return list_of_rgb_colors(number)
+
+    else:
+        return "Invalid color type"
+
+
+print(generate_colors("hexa", 3))
+print(generate_colors("hexa", 1))
+print(generate_colors("rgb", 3))
+print(generate_colors("rgb", 1))
+
+
+# LEVEL 3
+
+# Question 1
+def shuffle_list(my_list):
+    new_list = my_list.copy()
+    random.shuffle(new_list)
+
+    return new_list
+
+
+numbers = [1, 2, 3, 4, 5, 6]
+
+print(shuffle_list(numbers))
+
+
+# Question 2
+def 

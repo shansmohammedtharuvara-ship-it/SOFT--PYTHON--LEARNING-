@@ -1,0 +1,405 @@
+from functools import reduce
+
+# DAY 14 EXERCISES
+
+countries = ['Estonia', 'Finland', 'Sweden', 'Denmark', 'Norway', 'Iceland']
+names = ['Asabeneh', 'Lidiya', 'Ermias', 'Abraham']
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+# =========================
+# LEVEL 1
+# =========================
+
+# QUESTION 1
+# Difference between map, filter and reduce
+
+# map() changes each item in a list.
+# filter() selects items based on a condition.
+# reduce() combines all items into one value.
+
+
+# QUESTION 2
+# Higher order function, closure and decorator
+
+# Higher order function:
+# A function that takes another function as an argument.
+
+# Closure:
+# A function inside another function that remembers variables.
+
+# Decorator:
+# A function that changes the behavior of another function.
+
+
+# QUESTION 3
+# Callback function example
+
+def square(num):
+    return num * num
+
+result = list(map(square, numbers))
+
+print(result)
+
+
+# QUESTION 4
+# Print countries using for loop
+
+for country in countries:
+    print(country)
+
+
+# QUESTION 5
+# Print names using for loop
+
+for name in names:
+    print(name)
+
+
+# QUESTION 6
+# Print numbers using for loop
+
+for number in numbers:
+    print(number)
+
+
+# =========================
+# LEVEL 2
+# =========================
+
+# QUESTION 1
+# Change countries to uppercase using map
+
+def upper_country(country):
+    return country.upper()
+
+result = list(map(upper_country, countries))
+
+print(result)
+
+
+# QUESTION 2
+# Square numbers using map
+
+def square_number(num):
+    return num ** 2
+
+result = list(map(square_number, numbers))
+
+print(result)
+
+
+# QUESTION 3
+# Change names to uppercase using map
+
+def upper_name(name):
+    return name.upper()
+
+result = list(map(upper_name, names))
+
+print(result)
+
+
+# QUESTION 4
+# Filter countries containing 'land'
+
+def has_land(country):
+    return 'land' in country.lower()
+
+result = list(filter(has_land, countries))
+
+print(result)
+
+
+# QUESTION 5
+# Countries with exactly six characters
+
+def six_characters(country):
+    return len(country) == 6
+
+result = list(filter(six_characters, countries))
+
+print(result)
+
+
+# QUESTION 6
+# Countries with six or more characters
+
+def six_or_more(country):
+    return len(country) >= 6
+
+result = list(filter(six_or_more, countries))
+
+print(result)
+
+
+# QUESTION 7
+# Countries starting with E
+
+def starts_with_e(country):
+    return country.startswith('E')
+
+result = list(filter(starts_with_e, countries))
+
+print(result)
+
+
+# QUESTION 8
+# Chain map, filter and reduce
+
+def double(num):
+    return num * 2
+
+def greater_than_ten(num):
+    return num > 10
+
+def add(a, b):
+    return a + b
+
+mapped = map(double, numbers)
+
+filtered = filter(greater_than_ten, mapped)
+
+result = reduce(add, filtered)
+
+print(result)
+
+
+# QUESTION 9
+# Return only strings from a list
+
+def get_string_lists(items):
+    result = []
+
+    for item in items:
+        if isinstance(item, str):
+            result.append(item)
+
+    return result
+
+
+my_list = [1, 'Apple', 2, 'Banana', 3, 'Orange']
+
+print(get_string_lists(my_list))
+
+
+# QUESTION 10
+# Sum all numbers using reduce
+
+def add_numbers(a, b):
+    return a + b
+
+result = reduce(add_numbers, numbers)
+
+print(result)
+
+
+# QUESTION 11
+# Join countries using reduce
+
+def join_countries(a, b):
+    return a + ', ' + b
+
+result = reduce(join_countries, countries[:-1])
+
+sentence = result + ', and ' + countries[-1] + ' are north European countries'
+
+print(sentence)
+
+
+# QUESTION 12
+# Categorize countries based on patterns
+
+def categorize_countries(country_list, pattern):
+    result = []
+
+    for country in country_list:
+        if pattern.lower() in country.lower():
+            result.append(country)
+
+    return result
+
+
+print(categorize_countries(countries, 'land'))
+print(categorize_countries(countries, 'ia'))
+
+
+# QUESTION 13
+# Count countries by starting letter
+
+def count_countries(country_list):
+    result = {}
+
+    for country in country_list:
+        letter = country[0]
+
+        if letter in result:
+            result[letter] += 1
+        else:
+            result[letter] = 1
+
+    return result
+
+
+print(count_countries(countries))
+
+
+# QUESTION 14
+# Get first ten countries
+
+def get_first_ten_countries(country_list):
+    return country_list[:10]
+
+
+print(get_first_ten_countries(countries))
+
+
+# QUESTION 15
+# Get last ten countries
+
+def get_last_ten_countries(country_list):
+    return country_list[-10:]
+
+
+print(get_last_ten_countries(countries))
+
+
+# =========================
+# LEVEL 3
+# =========================
+
+# Sample country data
+# The same functions can be used with the full countries_data.py file.
+
+countries_data = [
+    {
+        'name': 'Finland',
+        'capital': 'Helsinki',
+        'population': 5530719,
+        'languages': ['Finnish', 'Swedish']
+    },
+    {
+        'name': 'Sweden',
+        'capital': 'Stockholm',
+        'population': 10353442,
+        'languages': ['Swedish']
+    },
+    {
+        'name': 'Norway',
+        'capital': 'Oslo',
+        'population': 5421241,
+        'languages': ['Norwegian']
+    },
+    {
+        'name': 'Estonia',
+        'capital': 'Tallinn',
+        'population': 1326535,
+        'languages': ['Estonian']
+    },
+    {
+        'name': 'Denmark',
+        'capital': 'Copenhagen',
+        'population': 5831404,
+        'languages': ['Danish']
+    },
+    {
+        'name': 'Iceland',
+        'capital': 'Reykjavik',
+        'population': 366425,
+        'languages': ['Icelandic']
+    }
+]
+
+
+# QUESTION 1
+# Sort countries by name
+
+def get_name(country):
+    return country['name']
+
+sorted_names = sorted(countries_data, key=get_name)
+
+print("Countries sorted by name:")
+
+for country in sorted_names:
+    print(country['name'])
+
+
+# Sort countries by capital
+
+def get_capital(country):
+    return country['capital']
+
+sorted_capitals = sorted(countries_data, key=get_capital)
+
+print("Countries sorted by capital:")
+
+for country in sorted_capitals:
+    print(country['name'], country['capital'])
+
+
+# Sort countries by population
+
+def get_population(country):
+    return country['population']
+
+sorted_population = sorted(
+    countries_data,
+    key=get_population,
+    reverse=True
+)
+
+print("Countries sorted by population:")
+
+for country in sorted_population:
+    print(country['name'], country['population'])
+
+
+# QUESTION 2
+# Find ten most spoken languages by number of countries
+
+language_count = {}
+
+for country in countries_data:
+    for language in country['languages']:
+
+        if language in language_count:
+            language_count[language] += 1
+        else:
+            language_count[language] = 1
+
+
+def get_language_count(item):
+    return item[1]
+
+
+sorted_languages = sorted(
+    language_count.items(),
+    key=get_language_count,
+    reverse=True
+)
+
+print("Ten most spoken languages:")
+
+for language in sorted_languages[:10]:
+    print(language)
+
+
+# QUESTION 3
+# Find ten most populated countries
+
+def population(country):
+    return country['population']
+
+
+most_populated = sorted(
+    countries_data,
+    key=population,
+    reverse=True
+)
+
+print("Ten most populated countries:")
+
+for country in most_populated[:10]:
+    print(country['name'], country['population'])

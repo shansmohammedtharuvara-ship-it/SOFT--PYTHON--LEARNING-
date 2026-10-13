@@ -1,0 +1,354 @@
+# DAY 19 EXERCISES
+# FILE HANDLING
+
+import json
+import re
+import csv
+from collections import Counter
+
+
+# =========================
+# LEVEL 1
+# =========================
+
+
+# QUESTION 1
+# Count lines and words in text files
+
+def count_lines_words(filename):
+
+    with open(filename, 'r', encoding='utf-8') as file:
+        lines = file.readlines()
+
+    line_count = len(lines)
+    word_count = 0
+
+    for line in lines:
+        words = line.split()
+        word_count += len(words)
+
+    print("File:", filename)
+    print("Number of lines:", line_count)
+    print("Number of words:", word_count)
+    print()
+
+
+count_lines_words('./data/obama_speech.txt')
+
+count_lines_words('./data/michelle_obama_speech.txt')
+
+count_lines_words('./data/donald_speech.txt')
+
+count_lines_words('./data/melina_trump_speech.txt')
+
+
+# QUESTION 2
+# Find the most spoken languages
+
+def most_spoken_languages(filename, number):
+
+    with open(filename, 'r', encoding='utf-8') as file:
+        countries = json.load(file)
+
+    languages = {}
+
+    for country in countries:
+        for language in country['languages']:
+
+            if language in languages:
+                languages[language] += 1
+            else:
+                languages[language] = 1
+
+    result = []
+
+    for language, count in languages.items():
+        result.append((count, language))
+
+    result.sort(reverse=True)
+
+    return result[:number]
+
+
+print("Most spoken languages:")
+
+print(most_spoken_languages(
+    './data/countries_data.json', 10
+))
+
+print(most_spoken_languages(
+    './data/countries_data.json', 3
+))
+
+
+# QUESTION 3
+# Find the most populated countries
+
+def most_populated_countries(filename, number):
+
+    with open(filename, 'r', encoding='utf-8') as file:
+        countries = json.load(file)
+
+    result = []
+
+    for country in countries:
+
+        info = {
+            'country': country['name'],
+            'population': country['population']
+        }
+
+        result.append(info)
+
+    result.sort(
+        key=lambda x: x['population'],
+        reverse=True
+    )
+
+    return result[:number]
+
+
+print("Most populated countries:")
+
+print(most_populated_countries(
+    './data/countries_data.json', 10
+))
+
+print(most_populated_countries(
+    './data/countries_data.json', 3
+))
+
+
+# =========================
+# LEVEL 2
+# =========================
+
+
+# QUESTION 1
+# Extract email addresses from a file
+
+def extract_emails(filename):
+
+    with open(filename, 'r', encoding='utf-8') as file:
+        text = file.read()
+
+    emails = re.findall(
+        r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}',
+        text
+    )
+
+    return emails
+
+
+print("Email addresses:")
+
+print(extract_emails(
+    './data/email_exchange_big.txt'
+))
+
+
+# QUESTION 2
+# Find most common words in a file or text
+
+def find_most_common_words(text, number):
+
+    try:
+        with open(text, 'r', encoding='utf-8') as file:
+            content = file.read()
+
+    except (FileNotFoundError, OSError, ValueError):
+        content = text
+
+    words = re.findall(r'\b[a-zA-Z]+\b', content.lower())
+
+    word_count = {}
+
+    for word in words:
+
+        if word in word_count:
+            word_count[word] += 1
+        else:
+            word_count[word] = 1
+
+    result = []
+
+    for word, count in word_count.items():
+        result.append((count, word))
+
+    result.sort(reverse=True)
+
+    return result[:number]
+
+
+# Example using a string
+
+sample = "Python is easy and Python is interesting"
+
+print(find_most_common_words(sample, 5))
+
+
+# QUESTION 3
+# Find the most frequent words in speeches
+
+def find_most_frequent_words(filename, number):
+
+    return find_most_common_words(filename, number)
+
+
+print("Obama speech:")
+
+print(find_most_frequent_words(
+    './data/obama_speech.txt', 10
+))
+
+
+print("Michelle Obama speech:")
+
+print(find_most_frequent_words(
+    './data/michelle_obama_speech.txt', 10
+))
+
+
+print("Donald Trump speech:")
+
+print(find_most_frequent_words(
+    './data/donald_speech.txt', 10
+))
+
+
+print("Melina Trump speech:")
+
+print(find_most_frequent_words(
+    './data/melina_trump_speech.txt', 10
+))
+
+
+# QUESTION 4
+# Check similarity between two speeches
+
+
+# Clean the text
+
+def clean_text(text):
+
+    text = text.lower()
+
+    text = re.sub(r'[^a-zA-Z ]', ' ', text)
+
+    return text
+
+
+# Remove stop words
+
+def remove_support_words(text):
+
+    with open('./data/stop_words.py', 'r', encoding='utf-8') as file:
+        stop_text = file.read()
+
+    # Extract the stop words list from the Python file
+    import ast
+
+    tree = ast.parse(stop_text)
+    stop_words = []
+
+    for node in tree.body:
+        if isinstance(node, ast.Assign):
+            for target in node.targets:
+                if isinstance(target, ast.Name) and target.id == 'stop_words':
+                    stop_words = ast.literal_eval(node.value)
+
+    words = text.split()
+
+    result = []
+
+    for word in words:
+
+        if word not in stop_words:
+            result.append(word)
+
+    return result
+
+
+# Compare two texts
+
+def check_text_similarity(file1, file2):
+
+    with open(file1, 'r', encoding='utf-8') as file:
+        text1 = file.read()
+
+    with open(file2, 'r', encoding='utf-8') as file:
+        text2 = file.read()
+
+    text1 = clean_text(text1)
+    text2 = clean_text(text2)
+
+    words1 = set(remove_support_words(text1))
+    words2 = set(remove_support_words(text2))
+
+    common_words = words1.intersection(words2)
+
+    all_words = words1.union(words2)
+
+    if len(all_words) == 0:
+        return 0
+
+    similarity = len(common_words) / len(all_words)
+
+    return similarity * 100
+
+
+print("Speech similarity:")
+
+similarity = check_text_similarity(
+    './data/michelle_obama_speech.txt',
+    './data/melina_trump_speech.txt'
+)
+
+print("Similarity:", round(similarity, 2), "%")
+
+
+# QUESTION 5
+# Find 10 most repeated words in Romeo and Juliet
+
+print("Most repeated words in Romeo and Juliet:")
+
+print(find_most_common_words(
+    './data/romeo_and_juliet.txt', 10
+))
+
+
+# QUESTION 6
+# Read Hacker News CSV file
+
+
+def count_hacker_news(filename):
+
+    python_count = 0
+    javascript_count = 0
+    java_count = 0
+
+    with open(filename, 'r', encoding='utf-8') as file:
+
+        reader = csv.reader(file)
+
+        for row in reader:
+
+            text = ' '.join(row)
+
+            if re.search(r'python', text, re.I):
+                python_count += 1
+
+            if re.search(r'javascript', text, re.I):
+                javascript_count += 1
+
+            if re.search(r'\bjava\b', text, re.I):
+                java_count += 1
+
+    print("Python lines:", python_count)
+
+    print("JavaScript lines:", javascript_count)
+
+    print("Java lines:", java_count)
+
+
+count_hacker_news('./data/hacker_news.csv')

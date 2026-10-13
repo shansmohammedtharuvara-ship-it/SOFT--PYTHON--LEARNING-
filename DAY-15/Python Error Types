@@ -1,0 +1,117 @@
+# DAY 15 EXERCISES
+# PYTHON ERROR TYPES
+
+
+# QUESTION 1
+# SyntaxError
+
+# Wrong code:
+# print "Hello World"
+
+# Correct code:
+print("Hello World")
+
+
+# QUESTION 2
+# NameError
+
+# Wrong code:
+# print(age)
+
+# Correct code:
+age = 25
+print(age)
+
+
+# QUESTION 3
+# IndexError
+
+numbers = [1, 2, 3, 4, 5]
+
+# Wrong code:
+# print(numbers[5])
+
+# Correct code:
+print(numbers[4])
+
+
+# QUESTION 4
+# ModuleNotFoundError
+
+# Wrong code:
+# import maths
+
+# Correct code:
+import math
+
+print(math.sqrt(16))
+
+
+# QUESTION 5
+# AttributeError
+
+import math
+
+# Wrong code:
+# print(math.PI)
+
+# Correct code:
+print(math.pi)
+
+
+# QUESTION 6
+# KeyError
+
+user = {
+    'name': 'Asab',
+    'age': 25,
+    'country': 'Finland'
+}
+
+# Wrong code:
+# print(user['county'])
+
+# Correct code:
+print(user['country'])
+
+
+# QUESTION 7
+# TypeError
+
+# Wrong code:
+# print(4 + '3')
+
+# Correct code:
+print(4 + int('3'))
+
+
+# QUESTION 8
+# ImportError
+
+# Wrong code:
+# from math import power
+
+# Correct code:
+from math import pow
+
+print(pow(2, 3))
+
+
+# QUESTION 9
+# ValueError
+
+# Wrong code:
+# print(int('12a'))
+
+# Correct code:
+print(int('12'))
+
+
+# QUESTION 10
+# ZeroDivisionError
+
+# Wrong code:
+# print(10 / 0)
+
+# Correct code:
+print(10 / 2)
